@@ -3,6 +3,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   margin: 0;
   height: 100vh;
 }
@@ -10,15 +11,30 @@ body {
 #header {
   background-color: #ff00ff;
   color: #ffffff;
-  font-size: 24px;
-  font-weight: 700;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 4px 0;
+  padding: 4px 32px;
 }
 
-#content {
+#logo {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+#navigation {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+}
+
+#navigation a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.content {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,23 +42,23 @@ body {
   gap: 20px;
 }
 
-#img {
+.img {
   width: 500px;
   height: auto;
 }
 
-#pic {
+.pic {
   display: flex;
   flex-direction: column;
   gap: 8px;
   align-items: center;
 }
 
-#popis {
+.popis {
   color: #ffffff;
 }
 
-#kupit {
+.kupit {
   cursor: pointer;
   color: #ffffff;
   font-weight: 700;
@@ -52,12 +68,56 @@ body {
   padding: 4px 8px;
 }
 
-#kupit:hover {
+#enter {
+  cursor: pointer;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+#enter a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.kupit:hover {
   background-color: #adff2f;
   border-color: #ffff00;
 }
 
-#kupit.disabled {
+.kupit.disabled {
   background-color: #808080;
   border-color: #808080;
+}
+
+#splash {
+  background: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url("./images/splash.jpg");
+  filter: brightness(100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  height: 100vh;
+}
+
+#title {
+  color: #ffffff;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+#desc {
+  color: #ffffff;
+  margin-bottom: 60px
+}
+
+#footer {
+  background-color: #ff00ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 0;
 }
