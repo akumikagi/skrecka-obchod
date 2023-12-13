@@ -10,11 +10,23 @@ body {
 
 #header {
   background-color: #ff00ff;
+  filter: brightness(20%);
   color: #ffffff;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 4px 32px;
+  transition: .05s linear;
+}
+
+#header.inactive {
+  filter: brightness(40%);
+  justify-content: center;
+  padding: 0px 32px;
+}
+
+#header.active {
+  filter: brightness(100%);
+  justify-content: space-between;
+  padding: 8px 32px;
 }
 
 #logo {
@@ -32,6 +44,11 @@ body {
   text-decoration: none;
   color: #ffffff;
   font-weight: 700;
+}
+
+#logo, #navigation, #navigation a {
+  margin: 0;
+  padding: 4px 0;
 }
 
 .content {
@@ -116,8 +133,10 @@ body {
 
 #footer {
   background-color: #ff00ff;
+  filter: brightness(40%);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 4px 0;
+  transition: 0.05s linear;
 }
