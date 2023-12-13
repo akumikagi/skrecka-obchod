@@ -1,13 +1,24 @@
-const buttonEmilka = document.querySelector("#emilka");
-const emilka = document.querySelector(".img");
-const popis = document.querySelector(".popis");
+let emilkaName = ["Emilka", "skrecka"];
+const btnEmilka = document.querySelector("#btnEmilka");
+const imgEmilka = document.querySelector("#imgEmilka");
+const pEmilka = document.querySelector("#pEmilka");
 
-buttonEmilka.addEventListener("click", bobikTatik);
+let elaName = ["Ela", "ela"];
+const btnEla = document.querySelector("#btnEla");
+const imgEla = document.querySelector("#imgEla");
+const pEla = document.querySelector("#pEla");
 
-function bobikTatik() {
-  alert("Skrecka kupena!");
-  emilka.setAttribute("src", "./images/skreckaKupena.png");
-  popis.textContent = "Emilka: Claimnuta";
-  buttonEmilka.className += " disabled";
-  buttonEmilka.disabled = true;
+btnEmilka.addEventListener("click", () => {
+  bobikTatik(emilkaName, btnEmilka, imgEmilka, pEmilka);
+});
+btnEla.addEventListener("click", () => {
+  bobikTatik(elaName, btnEla, imgEla, pEla);
+});
+
+function bobikTatik(name, btn, img, p) {
+  alert(`${name[0]} kupena!`);
+  img.setAttribute("src", `./images/${name[1]}Kupena.png`);
+  p.textContent = `${name[0]}: Claimnuta`;
+  btn.className += " disabled";
+  btn.disabled = true;
 }
