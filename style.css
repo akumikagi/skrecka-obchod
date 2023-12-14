@@ -9,8 +9,10 @@ body {
 }
 
 #header {
-  background-color: #ff00ff;
-  filter: brightness(20%);
+/*background-color: #ff00ff;*/
+  background-color: #cf9b57;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -79,7 +81,7 @@ body {
   cursor: pointer;
   color: #ffffff;
   font-weight: 700;
-  background-color: #ff00ff;
+  background-color: #cf9b57;
   border: 2px solid #ffffff;
   border-radius: 8px;
   padding: 4px 8px;
@@ -132,11 +134,53 @@ body {
 }
 
 #footer {
-  background-color: #ff00ff;
+  background-color: #cf9b57;
+  color: #ffffff;
   filter: brightness(40%);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 4px 0;
   transition: 0.05s linear;
+}
+
+#me {
+  background-color: #181818;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 32px;
+}
+
+#who {
+  margin-bottom: 12px;
+}
+
+#who, #name {
+  color: #ffffff;
+  font-size: 18px;
+}
+
+#avatar {
+  background-image: url(./images/avatar.jpg);
+  background-size: contain;
+  border: 2px solid #ffffff;
+  border-radius: 360px;
+  width: 128px;
+  height: 128px;
+}
+
+#links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#github img {
+  width: 32px;
+  height: 32px;
 }
