@@ -184,3 +184,10 @@ body {
   width: 32px;
   height: 32px;
 }
+
+.search {
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  padding: 4px 12px;
+  width: 200px;
+}
