@@ -165,7 +165,8 @@ body {
 }
 
 #me.shrunk {
-  max-width: 196px;
+  max-width: 132px;
+  gap: 0px;
   transition: all 1s;
 }
 
@@ -248,4 +249,8 @@ body {
 
 .shrunk .contactPara {
   color: #181818;
+}
+
+.anibox {
+  width: 375px;
 }

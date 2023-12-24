@@ -39,7 +39,7 @@ const me = document.querySelector("#me");
 const contactPara = document.createElement("p");
 
 const animationBox = document.createElement("div");
-animationBox.style.width = "375px";
+animationBox.className = "anibox";
 
 search.addEventListener("click", clearTip);
 search.addEventListener("keydown", findAnimal);
@@ -103,7 +103,6 @@ function showFullContact() {
   whoami.removeEventListener("mouseleave", buttonDefault);
   whoami.removeEventListener("click", showFullContact);
   whoami.addEventListener("click", showHiddenContact);
-  me.removeEventListener("transitionend", hidePara);
   me.addEventListener("transitionend", showPara);
   whoami.textContent = "<<"
   contactPara.className = "contactPara fade-in";
@@ -121,19 +120,16 @@ function showHiddenContact() {
   whoami.addEventListener("click", showFullContact);
   whoami.removeEventListener("click", showHiddenContact);
   me.removeEventListener("transitionend", showPara);
-  me.addEventListener("transitionend", hidePara);
   me.setAttribute("class", "shrunk");
-  contactPara.innerHTML = "Don't mind me just helping with shrinking animation!"
+  me.appendChild(animationBox);
+  me.removeChild(contactPara);
 }
 
 function showPara() {
-  me.removeChild(animationBox);
+  animationBox.remove();
   me.appendChild(contactPara);
 }
 
-function hidePara() {
-  me.removeChild(contactPara);
-}
 
 function buttonShowFull() {
   whoami.textContent = ">>";
