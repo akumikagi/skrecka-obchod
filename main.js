@@ -38,6 +38,9 @@ const whoami = document.querySelector("#whoami");
 const me = document.querySelector("#me");
 const contactPara = document.createElement("p");
 
+const animationBox = document.createElement("div");
+animationBox.style.width = "375px";
+
 search.addEventListener("click", clearTip);
 search.addEventListener("keydown", findAnimal);
 
@@ -100,13 +103,36 @@ function showFullContact() {
   whoami.removeEventListener("mouseleave", buttonDefault);
   whoami.removeEventListener("click", showFullContact);
   whoami.addEventListener("click", showHiddenContact);
+  me.removeEventListener("transitionend", hidePara);
+  me.addEventListener("transitionend", showPara);
   whoami.textContent = "<<"
-  contactPara.className = "contactPara";
+  contactPara.className = "contactPara fade-in";
   contactPara.innerHTML = `Hello, I'm Akumi, rookie at making websites.<br>
                            <br>
                            This is far from a fancy, useful and functional site, 
                            but I'm having fun making it and learning along the way!`;
+  me.setAttribute("class", "expanded");
+  me.appendChild(animationBox);
+}
+
+function showHiddenContact() {
+  whoami.addEventListener("mouseenter", buttonShowFull);
+  whoami.addEventListener("mouseleave", buttonDefault);
+  whoami.addEventListener("click", showFullContact);
+  whoami.removeEventListener("click", showHiddenContact);
+  me.removeEventListener("transitionend", showPara);
+  me.addEventListener("transitionend", hidePara);
+  me.setAttribute("class", "shrunk");
+  contactPara.innerHTML = "Don't mind me just helping with shrinking animation!"
+}
+
+function showPara() {
+  me.removeChild(animationBox);
   me.appendChild(contactPara);
+}
+
+function hidePara() {
+  me.removeChild(contactPara);
 }
 
 function buttonShowFull() {
@@ -117,10 +143,3 @@ function buttonDefault() {
   whoami.textContent = "Who?";
 }
 
-function showHiddenContact() {
-  whoami.addEventListener("mouseenter", buttonShowFull);
-  whoami.addEventListener("mouseleave", buttonDefault);
-  whoami.addEventListener("click", showFullContact);
-  whoami.removeEventListener("click", showHiddenContact);
-  me.removeChild(contactPara);
-}

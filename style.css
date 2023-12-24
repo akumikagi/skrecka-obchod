@@ -153,7 +153,20 @@ body {
   align-items: center;
   padding: 8px 32px;
   gap: 20px;
+  max-width: 196px;
+  max-height: 285.5px;
+  transition: all 1s;
+  overflow: hidden;
+}
+
+#me.expanded {
   max-width: 527px;
+  transition: all 1s;
+}
+
+#me.shrunk {
+  max-width: 196px;
+  transition: all 1s;
 }
 
 #hiddenMe {
@@ -214,4 +227,25 @@ body {
   padding: 0;
   margin: 0;
   text-align: justify;
+}
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 2s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.shrunk .contactPara {
+  color: #181818;
 }
