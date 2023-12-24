@@ -83,5 +83,6 @@ function findAnimal(e) {
   else if(e.key === "Escape") {
     header.addEventListener("mouseenter", mouseenter);
     header.addEventListener("mouseleave", mouseleave);
+    mouseleave();
   }
 }
