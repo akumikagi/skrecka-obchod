@@ -34,6 +34,8 @@ const animals = [
   { name: "Slimy", id: 11 },
 ];
 
+const whoami = document.querySelector("#whoami");
+
 search.addEventListener("click", clearTip);
 search.addEventListener("keydown", findAnimal);
 
@@ -46,6 +48,9 @@ footer.addEventListener("mouseenter", () => {
 footer.addEventListener("mouseleave", () => {
   footer.style.filter = "brightness(40%)";
 });
+
+whoami.addEventListener("mouseenter", () => whoami.textContent = ">>");
+whoami.addEventListener("mouseleave", () => whoami.textContent = "Who?");
 
 function mouseenter() {
   header.className = "active";

@@ -191,3 +191,12 @@ body {
   padding: 4px 12px;
   width: 200px;
 }
+
+#who button{
+  background-color: #ffffff;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 4px 12px;
+  width: 58px;
+}
