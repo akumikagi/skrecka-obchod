@@ -35,6 +35,8 @@ const animals = [
 ];
 
 const whoami = document.querySelector("#whoami");
+const me = document.querySelector("#me");
+const contactPara = document.createElement("p");
 
 search.addEventListener("click", clearTip);
 search.addEventListener("keydown", findAnimal);
@@ -49,8 +51,9 @@ footer.addEventListener("mouseleave", () => {
   footer.style.filter = "brightness(40%)";
 });
 
-whoami.addEventListener("mouseenter", () => whoami.textContent = ">>");
-whoami.addEventListener("mouseleave", () => whoami.textContent = "Who?");
+whoami.addEventListener("mouseenter", buttonShowFull);
+whoami.addEventListener("mouseleave", buttonDefault);
+whoami.addEventListener("click", showFullContact);
 
 function mouseenter() {
   header.className = "active";
@@ -90,4 +93,34 @@ function findAnimal(e) {
     header.addEventListener("mouseleave", mouseleave);
     mouseleave();
   }
+}
+
+function showFullContact() {
+  whoami.removeEventListener("mouseenter", buttonShowFull);
+  whoami.removeEventListener("mouseleave", buttonDefault);
+  whoami.removeEventListener("click", showFullContact);
+  whoami.addEventListener("click", showHiddenContact);
+  whoami.textContent = "<<"
+  contactPara.className = "contactPara";
+  contactPara.innerHTML = `Hello, I'm Akumi, rookie at making websites.<br>
+                           <br>
+                           This is far from a fancy, useful and functional site, 
+                           but I'm having fun making it and learning along the way!`;
+  me.appendChild(contactPara);
+}
+
+function buttonShowFull() {
+  whoami.textContent = ">>";
+}
+
+function buttonDefault() {
+  whoami.textContent = "Who?";
+}
+
+function showHiddenContact() {
+  whoami.addEventListener("mouseenter", buttonShowFull);
+  whoami.addEventListener("mouseleave", buttonDefault);
+  whoami.addEventListener("click", showFullContact);
+  whoami.removeEventListener("click", showHiddenContact);
+  me.removeChild(contactPara);
 }
