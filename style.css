@@ -144,7 +144,8 @@ body {
   transition: 0.05s linear;
 }
 
-#me {
+#me,
+#her {
   background-color: #181818;
   border: 2px solid #ffffff;
   border-radius: 8px;
@@ -159,18 +160,21 @@ body {
   overflow: hidden;
 }
 
-#me.expanded {
+#me.expanded,
+#her.expanded {
   max-width: 527px;
   transition: all 1s;
 }
 
-#me.shrunk {
+#me.shrunk,
+#her.shrunk {
   max-width: 132px;
   gap: 0px;
   transition: all 1s;
 }
 
-#hiddenMe {
+#hiddenMe,
+#hiddenHer {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -178,17 +182,19 @@ body {
   align-items: center;
 }
 
-#who {
+#who,
+#whom {
   margin-bottom: 12px;
 }
 
-#who, #name {
+#who, .name,
+#whom {
   color: #ffffff;
   font-size: 18px;
 }
 
-#avatar {
-  background-image: url(./images/avatar.jpg);
+#avatar,
+#avatarII {
   background-size: contain;
   border: 2px solid #ffffff;
   border-radius: 360px;
@@ -196,13 +202,21 @@ body {
   height: 128px;
 }
 
-#links {
+#avatar {
+  background-image: url(./images/avatar.jpg);
+}
+
+#avatarII {
+  background-image: url(./images/natumi.png);
+}
+
+.links {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#github img {
+.github img {
   width: 32px;
   height: 32px;
 }
@@ -214,7 +228,8 @@ body {
   width: 200px;
 }
 
-#who button{
+#who button,
+#whom button{
   background-color: #ffffff;
   cursor: pointer;
   border: none;
@@ -251,6 +266,7 @@ body {
   color: #181818;
 }
 
-.anibox {
+.anibox,
+.aniboxNat {
   width: 375px;
 }

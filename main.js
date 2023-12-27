@@ -35,11 +35,17 @@ const animals = [
 ];
 
 const whoami = document.querySelector("#whoami");
+const whoisshe = document.querySelector("#whoisshe");
 const me = document.querySelector("#me");
-const contactPara = document.createElement("p");
+const her = document.querySelector("#her");
+const contactParaMimi = document.createElement("p");
+const contactParaNat = document.createElement("p");
 
-const animationBox = document.createElement("div");
-animationBox.className = "anibox";
+const animationBoxMimi = document.createElement("div");
+animationBoxMimi.className = "anibox";
+const animationBoxNat = document.createElement("div");
+animationBoxNat.className = "aniboxNat";
+
 
 search.addEventListener("click", clearTip);
 search.addEventListener("keydown", findAnimal);
@@ -54,9 +60,12 @@ footer.addEventListener("mouseleave", () => {
   footer.style.filter = "brightness(40%)";
 });
 
-whoami.addEventListener("mouseenter", buttonShowFull);
-whoami.addEventListener("mouseleave", buttonDefault);
-whoami.addEventListener("click", showFullContact);
+whoami.addEventListener("mouseenter", buttonShowFullMimi);
+whoami.addEventListener("mouseleave", buttonDefaultMimi);
+whoami.addEventListener("click", showFullContactMimi);
+whoisshe.addEventListener("mouseenter", buttonShowFullNat);
+whoisshe.addEventListener("mouseleave", buttonDefaultNat);
+whoisshe.addEventListener("click", showFullContactNat);
 
 function mouseenter() {
   header.className = "active";
@@ -98,44 +107,83 @@ function findAnimal(e) {
   }
 }
 
-function showFullContact() {
-  whoami.removeEventListener("mouseenter", buttonShowFull);
-  whoami.removeEventListener("mouseleave", buttonDefault);
-  whoami.removeEventListener("click", showFullContact);
-  whoami.addEventListener("click", showHiddenContact);
-  me.addEventListener("transitionend", showPara);
+function showFullContactMimi() {
+  whoami.removeEventListener("mouseenter", buttonShowFullMimi);
+  whoami.removeEventListener("mouseleave", buttonDefaultMimi);
+  whoami.removeEventListener("click", showFullContactMimi);
+  whoami.addEventListener("click", showHiddenContactMimi);
+  me.addEventListener("transitionend", showParaMimi);
   whoami.textContent = "<<"
-  contactPara.className = "contactPara fade-in";
-  contactPara.innerHTML = `Hello, I'm Akumi, rookie at making websites.<br>
+  contactParaMimi.className = "contactPara fade-in";
+  contactParaMimi.innerHTML = `Hello, I'm Akumi, rookie at making websites.<br>
                            <br>
                            This is far from a fancy, useful and functional site, 
                            but I'm having fun making it and learning along the way!`;
   me.setAttribute("class", "expanded");
-  me.appendChild(animationBox);
+  me.appendChild(animationBoxMimi);
 }
 
-function showHiddenContact() {
-  whoami.addEventListener("mouseenter", buttonShowFull);
-  whoami.addEventListener("mouseleave", buttonDefault);
-  whoami.addEventListener("click", showFullContact);
-  whoami.removeEventListener("click", showHiddenContact);
-  me.removeEventListener("transitionend", showPara);
+function showHiddenContactMimi() {
+  whoami.addEventListener("mouseenter", buttonShowFullMimi);
+  whoami.addEventListener("mouseleave", buttonDefaultMimi);
+  whoami.addEventListener("click", showFullContactMimi);
+  whoami.removeEventListener("click", showHiddenContactMimi);
+  me.removeEventListener("transitionend", showParaMimi);
   me.setAttribute("class", "shrunk");
-  me.appendChild(animationBox);
-  me.removeChild(contactPara);
+  me.appendChild(animationBoxMimi);
+  me.removeChild(contactParaMimi);
 }
 
-function showPara() {
-  animationBox.remove();
-  me.appendChild(contactPara);
+function showFullContactNat() {
+  whoisshe.removeEventListener("mouseenter", buttonShowFullNat);
+  whoisshe.removeEventListener("mouseleave", buttonDefaultNat);
+  whoisshe.removeEventListener("click", showFullContactNat);
+  whoisshe.addEventListener("click", showHiddenContactNat);
+  her.addEventListener("transitionend", showParaNat);
+  whoisshe.textContent = "<<"
+  contactParaNat.className = "contactPara fade-in";
+  contactParaNat.innerHTML = `This is Natumi, co-owner of the skrecka shop.<br>
+                           <br>
+                           She is a good soul that is always trying her best, 
+                           there's plenty of creativity in this little one!`;
+  her.setAttribute("class", "expanded");
+  her.appendChild(animationBoxNat);
 }
 
+function showHiddenContactNat() {
+  whoisshe.addEventListener("mouseenter", buttonShowFullNat);
+  whoisshe.addEventListener("mouseleave", buttonDefaultNat);
+  whoisshe.addEventListener("click", showFullContactNat);
+  whoisshe.removeEventListener("click", showHiddenContactNat);
+  her.removeEventListener("transitionend", showParaNat);
+  her.setAttribute("class", "shrunk");
+  her.appendChild(animationBoxNat);
+  her.removeChild(contactParaNat);
+}
 
-function buttonShowFull() {
+function showParaMimi() {
+  animationBoxMimi.remove();
+  me.appendChild(contactParaMimi);
+}
+
+function showParaNat() {
+  animationBoxNat.remove();
+  her.appendChild(contactParaNat);
+}
+
+function buttonShowFullMimi() {
   whoami.textContent = ">>";
 }
 
-function buttonDefault() {
+function buttonDefaultMimi() {
   whoami.textContent = "Who?";
+}
+
+function buttonShowFullNat() {
+  whoisshe.textContent = ">>";
+}
+
+function buttonDefaultNat() {
+  whoisshe.textContent = "Who?";
 }
 
